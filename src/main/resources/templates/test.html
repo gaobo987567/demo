@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf test</title>
+</head>
+<body>
+    <form action="/save" th:action="@{/save}" method="post">
+        <p>
+            姓名：
+            <input type="text" name="name" />
+        </p>
+        <p>
+            年龄：
+            <input type="text" name="age" />
+        </p>
+        <p>
+            <input type="submit" value="提交" />
+        </p>
+
+
+    </form>
+
+    <hr/>
+
+    <table>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <tr th:each="user:${list}">
+            <td th:text="${user.id}">序号</td>
+            <td th:text="${user.name}">姓名</td>
+            <td th:text="${user.age}">年龄</td>
+        </tr>
+    </table>
+
+</body>
+</html>
